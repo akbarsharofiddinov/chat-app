@@ -1,0 +1,12 @@
+@mixin buttonStyle() {
+  background-color: #6d75c5;
+  padding: 7px 0;
+  color: #fff;
+  border: 2px solid transparent;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #5861c5;
+  }
+}

@@ -1,0 +1,122 @@
+@import "../common/button";
+@mixin pseudoElementStyle($top, $left) {
+  content: "";
+  position: absolute;
+  width: 80px;
+  border-bottom: 1px solid #ddd;
+  top: $top;
+  left: $left;
+  transform: translateY(50%);
+}
+
+.formBlock {
+  border: 2px solid black;
+  padding: 12px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .inputBlock {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      label {
+        font-size: 14px;
+      }
+
+      a {
+        color: #5861c5;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      input {
+        border: 1px solid #ddd;
+        padding: 8px 16px;
+        border-radius: 4px;
+      }
+
+      &.passwordInput {
+        .top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+
+      &.rememberInput {
+        flex-direction: row;
+      }
+    }
+
+    button {
+      @include buttonStyle();
+    }
+  }
+
+  .otherOption {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+
+    .title {
+      position: relative;
+
+      &::after {
+        @include pseudoElementStyle(50%, 110%);
+      }
+
+      &::before {
+        @include pseudoElementStyle(50%, -105%);
+      }
+    }
+
+    .options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      width: 100%;
+
+      button {
+        padding: 8px 0;
+        border: 2px solid transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        width: 140px;
+
+        &.facebookBtn {
+          background-color: rgba(65, 105, 225, 0.137);
+          color: #50a5f1;
+          background-color: rgba(80, 165, 241, 0.1);
+          transition: background-color 0.2s ease-in-out;
+
+          &:hover {
+            background-color: #50a5f1;
+            color: #fff;
+          }
+        }
+
+        &.googleBtn {
+          background-color: rgba(255, 0, 0, 0.068);
+          color: #ef476f;
+          background-color: rgba(239, 71, 111, 0.1);
+
+          &:hover {
+            background-color: #db4437;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
